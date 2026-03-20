@@ -136,18 +136,19 @@
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
+      grid-template-columns: 1.15fr 0.85fr;
       gap: 2.5rem;
       align-items: center;
     }
 
     .hero-logo {
-      height: 240px;
+      height: 320px;
       width: auto;
       display: block;
       margin-bottom: 1.25rem;
-      border-radius: 16px;
-      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.2);
+      background: transparent;
+      box-shadow: none;
+      border-radius: 0;
     }
 
     .eyebrow {
@@ -170,7 +171,18 @@
       font-size: 1.15rem;
       color: rgba(255,255,255,0.88);
       max-width: 680px;
-      margin: 0 0 1.6rem;
+      margin: 0 0 1.2rem;
+    }
+
+    .ai-highlight {
+      background: rgba(34, 197, 94, 0.12);
+      border: 1px solid rgba(34, 197, 94, 0.4);
+      padding: 1rem 1.1rem;
+      border-radius: 12px;
+      margin: 0 0 1.5rem;
+      color: var(--white);
+      font-weight: 700;
+      max-width: 740px;
     }
 
     .hero-actions {
@@ -374,7 +386,7 @@
       }
 
       .hero-logo {
-        height: 180px;
+        height: 220px;
       }
 
       .nav {
@@ -395,7 +407,7 @@
       }
 
       .hero-logo {
-        height: 140px;
+        height: 170px;
       }
 
       section {
@@ -434,6 +446,11 @@
             practical, career-focused training in land surveying, mapping, field procedures,
             emerging geospatial technologies, and AI-supported student learning.
           </p>
+
+          <div class="ai-highlight">
+            Built with integrated AI tutoring to support student learning, reinforce concepts,
+            and scale instruction beyond the classroom.
+          </div>
 
           <div class="hero-actions">
             <a class="btn btn-primary" href="#contact">Request Information</a>
