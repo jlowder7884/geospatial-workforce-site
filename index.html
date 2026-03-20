@@ -1,741 +1,169 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Geospatial Workforce Institute</title>
-  <meta
-    name="description"
-    content="Geospatial Workforce Institute prepares students and schools for high-demand careers in land surveying, geospatial technology, and workforce-ready training."
-  />
-  <style>
-    :root {
-      --navy: #0f2742;
-      --blue: #184d7a;
-      --gold: #d6a43a;
-      --light: #f4f7fb;
-      --white: #ffffff;
-      --text: #1d2a36;
-      --muted: #5d6a75;
-      --border: #dbe4ee;
-      --shadow: 0 10px 30px rgba(10, 30, 60, 0.12);
-      --radius: 18px;
-      --max: 1180px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.6;
-      color: var(--text);
-      background: var(--white);
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .container {
-      width: min(92%, var(--max));
-      margin: 0 auto;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 14px 24px;
-      border-radius: 999px;
-      font-weight: 700;
-      transition: 0.2s ease;
-      border: 2px solid transparent;
-    }
-
-    .btn-primary {
-      background: var(--gold);
-      color: #1e1e1e;
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      border-color: var(--white);
-      color: var(--white);
-    }
-
-    .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.12);
-    }
-
-    .btn-outline {
-      border-color: var(--blue);
-      color: var(--blue);
-      background: transparent;
-    }
-
-    .btn-outline:hover {
-      background: var(--blue);
-      color: var(--white);
-    }
-
-    header {
-      background: linear-gradient(135deg, var(--navy), var(--blue));
-      color: var(--white);
-      padding-bottom: 60px;
-    }
-
-    .topbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      padding: 18px 0;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      min-width: 0;
-    }
-
-    .brand img {
-      width: 70px;
-      height: 70px;
-      object-fit: contain;
-      background: transparent;
-      border-radius: 0;
-      padding: 0;
-      flex-shrink: 0;
-    }
-
-    .brand-text h1 {
-      font-size: 1.15rem;
-      line-height: 1.2;
-      letter-spacing: 0.2px;
-      margin-bottom: 2px;
-    }
-
-    .brand-text p {
-      font-size: 0.92rem;
-      color: rgba(255, 255, 255, 0.82);
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    nav a {
-      color: rgba(255, 255, 255, 0.95);
-      font-weight: 600;
-      font-size: 0.96rem;
-    }
-
-    nav a:hover {
-      color: #ffd77a;
-    }
-
-    .hero {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 42px;
-      align-items: center;
-      padding: 54px 0 30px;
-    }
-
-    .hero h2 {
-      font-size: clamp(2.2rem, 5vw, 4rem);
-      line-height: 1.05;
-      margin-bottom: 18px;
-    }
-
-    .hero p {
-      font-size: 1.1rem;
-      color: rgba(255, 255, 255, 0.9);
-      max-width: 700px;
-      margin-bottom: 24px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-bottom: 18px;
-    }
-
-    .hero-note {
-      font-size: 0.95rem;
-      color: rgba(255, 255, 255, 0.78);
-      margin-bottom: 16px;
-    }
-
-    .hero-list {
-      list-style: none;
-      color: rgba(255, 255, 255, 0.92);
-      margin-top: 10px;
-    }
-
-    .hero-list li {
-      margin-bottom: 8px;
-      font-size: 1rem;
-    }
-
-    .hero-card {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      border-radius: var(--radius);
-      padding: 30px;
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(6px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 360px;
-    }
-
-    .hero-card img {
-      max-width: 280px;
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-    }
-
-    section {
-      padding: 80px 0;
-    }
-
-    .section-heading {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    .section-heading h3 {
-      font-size: clamp(1.8rem, 3vw, 2.6rem);
-      color: var(--navy);
-      margin-bottom: 10px;
-    }
-
-    .section-heading p {
-      max-width: 780px;
-      margin: 0 auto;
-      color: var(--muted);
-      font-size: 1.05rem;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-
-    .card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 28px;
-      box-shadow: 0 8px 24px rgba(13, 31, 56, 0.05);
-    }
-
-    .card h4 {
-      color: var(--navy);
-      margin-bottom: 12px;
-      font-size: 1.2rem;
-    }
-
-    .card p {
-      color: var(--muted);
-    }
-
-    .highlight {
-      background: var(--light);
-    }
-
-    .split {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 28px;
-      align-items: stretch;
-    }
-
-    .panel {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 32px;
-      box-shadow: 0 8px 24px rgba(13, 31, 56, 0.05);
-    }
-
-    .panel h4 {
-      font-size: 1.45rem;
-      color: var(--navy);
-      margin-bottom: 14px;
-    }
-
-    .panel p {
-      color: var(--muted);
-      margin-bottom: 16px;
-    }
-
-    .panel ul {
-      padding-left: 20px;
-      color: var(--text);
-    }
-
-    .panel li + li {
-      margin-top: 10px;
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-      margin-top: 32px;
-    }
-
-    .stat {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 22px;
-      text-align: center;
-      box-shadow: 0 8px 24px rgba(13, 31, 56, 0.05);
-    }
-
-    .stat strong {
-      display: block;
-      font-size: 1.8rem;
-      color: var(--blue);
-      margin-bottom: 6px;
-    }
-
-    .ai-box {
-      background: linear-gradient(135deg, #102b49, #173f68);
-      color: var(--white);
-      border-radius: var(--radius);
-      padding: 36px;
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 28px;
-      align-items: center;
-      box-shadow: var(--shadow);
-    }
-
-    .ai-box h3 {
-      font-size: clamp(1.8rem, 3vw, 2.5rem);
-      margin-bottom: 12px;
-    }
-
-    .ai-box p {
-      color: rgba(255, 255, 255, 0.88);
-      margin-bottom: 18px;
-    }
-
-    .ai-features {
-      display: grid;
-      gap: 14px;
-    }
-
-    .ai-feature {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 14px;
-      padding: 16px 18px;
-    }
-
-    .ai-feature strong {
-      display: block;
-      margin-bottom: 4px;
-    }
-
-    .cta {
-      background: linear-gradient(135deg, var(--gold), #f0be55);
-      color: #1d1d1d;
-      border-radius: var(--radius);
-      padding: 42px;
-      text-align: center;
-      box-shadow: var(--shadow);
-    }
-
-    .cta h3 {
-      font-size: clamp(1.9rem, 3vw, 2.7rem);
-      margin-bottom: 12px;
-    }
-
-    .cta p {
-      max-width: 780px;
-      margin: 0 auto 22px;
-      font-size: 1.05rem;
-    }
-
-    .cta-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    .cta .btn-primary {
-      background: var(--navy);
-      color: var(--white);
-    }
-
-    .cta .btn-outline {
-      border-color: var(--navy);
-      color: var(--navy);
-    }
-
-    footer {
-      background: #0c1f34;
-      color: rgba(255, 255, 255, 0.86);
-      padding: 28px 0;
-      margin-top: 70px;
-    }
-
-    .footer-wrap {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    .small {
-      font-size: 0.92rem;
-    }
-
-    @media (max-width: 980px) {
-      .hero,
-      .split,
-      .ai-box,
-      .cards,
-      .stats {
-        grid-template-columns: 1fr;
-      }
-
-      .topbar {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      nav {
-        gap: 14px;
-      }
-
-      .hero-card {
-        min-height: 260px;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .hero h2 {
-        font-size: 2.2rem;
-      }
-
-      .brand {
-        align-items: flex-start;
-      }
-
-      .brand img {
-        width: 60px;
-        height: 60px;
-      }
-
-      .card,
-      .panel,
-      .hero-card,
-      .cta,
-      .ai-box {
-        padding: 22px;
-      }
-
-      .hero-card img {
-        max-width: 220px;
-      }
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="container">
-      <div class="topbar">
-        <div class="brand">
-          <img src="logo.png" alt="Geospatial Workforce Institute logo" />
-          <div class="brand-text">
-            <h1>Geospatial Workforce Institute</h1>
-            <p>Preparing the next generation of surveyors and geospatial professionals</p>
-          </div>
-        </div>
-
-        <nav>
-          <a href="about.html">About</a>
-          <a href="#opportunity">Opportunity</a>
-          <a href="#schools">For Schools</a>
-          <a href="#aitutor">AI Tutor</a>
-          <a href="#contact">Contact</a>
-        </nav>
-      </div>
-
-      <div class="hero">
-        <div>
-          <h2>Launch Careers in Surveying &amp; Geospatial Technology</h2>
-          <p>
-            The Geospatial Workforce Institute connects students, educators, and schools
-            with practical, modern training for one of the most important and overlooked
-            industries in America.
-          </p>
-
-          <div class="hero-buttons">
-            <a href="#about" class="btn btn-primary">Explore the Program</a>
-            <a href="#schools" class="btn btn-secondary">Bring It to Your School</a>
-          </div>
-
-          <p class="hero-note">
-            Hands-on learning. Workforce-ready skills. Clear pathways into high-demand careers.
-          </p>
-
-          <ul class="hero-list">
-            <li>✔ Real-world surveying and geospatial skills</li>
-            <li>✔ Career awareness and industry-aligned training</li>
-            <li>✔ A pathway toward CST and future licensure goals</li>
-          </ul>
-        </div>
-
-        <div class="hero-card">
-          <img src="logo.png" alt="Geospatial Workforce Institute" />
-        </div>
-      </div>
+<!-- KEEP YOUR HEAD + NAV THE SAME -->
+
+<section>
+  <div class="container">
+    <div class="section-heading">
+      <h3>Why This Institute Exists</h3>
+      <p>
+        The Geospatial Workforce Institute was not created as just another course platform.
+        It was built to solve a problem that has been hiding in plain sight.
+      </p>
     </div>
-  </header>
 
-  <section id="about">
-    <div class="container">
-      <div class="section-heading">
-        <h3>Why Geospatial Matters</h3>
+    <div class="panel">
+      <p>
+        Across the country, there is a growing disconnect between education and opportunity.
+        Students are told to prepare for the future, but many never see the careers that are
+        actually available to them. At the same time, industries that shape our world are
+        quietly struggling to find the next generation of professionals.
+      </p>
+
+      <p>
+        Land surveying and geospatial technology sit at the center of that disconnect.
+        These are careers tied directly to construction, infrastructure, land development,
+        mapping, and the physical world around us. They are essential. They are in demand.
+        And yet, most students never hear about them.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="highlight">
+  <div class="container">
+    <div class="section-heading">
+      <h3>The Problem with Traditional Pathways</h3>
+    </div>
+
+    <div class="split">
+      <div class="panel">
         <p>
-          Surveying and geospatial technology support construction, infrastructure,
-          transportation, utilities, mapping, development, and land management.
-          These careers combine fieldwork, problem-solving, technology, and purpose.
+          In many classrooms, students are working hard but without a clear connection to
+          real-world outcomes. They complete assignments, pass tests, and move forward,
+          but often without a strong understanding of where those efforts can lead.
+        </p>
+
+        <p>
+          Meanwhile, schools are expected to prepare students for careers, yet they are
+          often limited by time, resources, and access to industry-aligned content.
         </p>
       </div>
 
-      <div class="cards">
-        <div class="card">
-          <h4>Real-World Skills</h4>
-          <p>
-            Students learn practical concepts tied to the work professionals actually perform
-            in the field and office, from measurement and mapping to data-driven decision-making.
-          </p>
-        </div>
-
-        <div class="card">
-          <h4>Modern Technology</h4>
-          <p>
-            Training reflects the tools shaping the profession, including total stations,
-            GNSS/GPS, digital mapping, and emerging geospatial workflows.
-          </p>
-        </div>
-
-        <div class="card">
-          <h4>Career Pathways</h4>
-          <p>
-            Learners are introduced to careers that can lead to meaningful employment,
-            advancement, certifications, and long-term professional growth.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="opportunity" class="highlight">
-    <div class="container">
-      <div class="section-heading">
-        <h3>A Growing Industry with Urgent Demand</h3>
+      <div class="panel">
         <p>
-          The land surveying profession faces a major workforce challenge as experienced
-          professionals retire faster than new ones enter the pipeline. That challenge
-          creates a powerful opportunity for students, schools, and workforce programs.
-        </p>
-      </div>
-
-      <div class="split">
-        <div class="panel">
-          <h4>The challenge</h4>
-          <p>
-            Many regions are experiencing a shortage of future surveyors and licensed professionals.
-            Firms, agencies, and industry partners need better pipelines to attract and prepare
-            the next generation.
-          </p>
-          <ul>
-            <li>An aging workforce is approaching retirement</li>
-            <li>Too few students know this career path exists</li>
-            <li>Schools need scalable, modern instructional solutions</li>
-            <li>Industry needs workforce-ready talent with foundational skills</li>
-          </ul>
-        </div>
-
-        <div class="panel">
-          <h4>The opportunity</h4>
-          <p>
-            This is exactly where the Geospatial Workforce Institute fits. We help students
-            discover a meaningful career path while helping schools align education with real workforce needs.
-          </p>
-          <ul>
-            <li>High-demand career field</li>
-            <li>Strong long-term relevance in every state</li>
-            <li>Connection to construction, engineering, and technology</li>
-            <li>A practical bridge between classroom learning and industry employment</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="stats">
-        <div class="stat">
-          <strong>Students</strong>
-          <span>Discover overlooked, high-value careers</span>
-        </div>
-        <div class="stat">
-          <strong>Schools</strong>
-          <span>Strengthen CTE and workforce pathways</span>
-        </div>
-        <div class="stat">
-          <strong>Industry</strong>
-          <span>Build the next generation pipeline</span>
-        </div>
-        <div class="stat">
-          <strong>Communities</strong>
-          <span>Support infrastructure and land development</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="schools">
-    <div class="container">
-      <div class="section-heading">
-        <h3>Built for Schools and Workforce Programs</h3>
-        <p>
-          The Geospatial Workforce Institute is designed to support classroom instruction,
-          CTE programs, pilot campuses, workforce initiatives, and scalable online learning.
-        </p>
-      </div>
-
-      <div class="cards">
-        <div class="card">
-          <h4>Easy to Implement</h4>
-          <p>
-            The program is structured so schools can introduce geospatial and surveying content
-            without having to build everything from scratch.
-          </p>
-        </div>
-
-        <div class="card">
-          <h4>Aligned to Workforce Needs</h4>
-          <p>
-            Instruction focuses on practical industry relevance, helping schools connect
-            learning outcomes to real employment opportunities.
-          </p>
-        </div>
-
-        <div class="card">
-          <h4>Scalable for Growth</h4>
-          <p>
-            Whether starting with a pilot or expanding across multiple campuses, the model is
-            built to grow with districts, partners, and future course offerings.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="aitutor">
-    <div class="container">
-      <div class="ai-box">
-        <div>
-          <h3>AI Tutor Support for Modern Learning</h3>
-          <p>
-            Our vision includes an AI Tutor that helps students learn faster, practice smarter,
-            and get support when they need it.
-          </p>
-          <p>
-            Instead of one-size-fits-all instruction, students can receive guided help,
-            reinforcement, and feedback tailored to the material they are working on.
-          </p>
-          <a href="#contact" class="btn btn-primary">Ask About the AI Tutor Vision</a>
-        </div>
-
-        <div class="ai-features">
-          <div class="ai-feature">
-            <strong>On-Demand Help</strong>
-            <span>Students get support outside traditional classroom hours.</span>
-          </div>
-          <div class="ai-feature">
-            <strong>Skill Reinforcement</strong>
-            <span>Concepts can be revisited until students build confidence.</span>
-          </div>
-          <div class="ai-feature">
-            <strong>Scalable Instruction</strong>
-            <span>Schools can extend learning support without overloading teachers.</span>
-          </div>
-          <div class="ai-feature">
-            <strong>Future-Ready Delivery</strong>
-            <span>Blends workforce education with modern digital learning tools.</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-      <div class="cta">
-        <h3>Preparing the Next Generation of Geospatial Professionals</h3>
-        <p>
-          Whether you are a student exploring a career path, an educator building a program,
-          or a school looking for innovative workforce-aligned learning, the Geospatial Workforce Institute is built to help.
+          The result is a gap. Students lack awareness. Schools lack scalable solutions.
+          Industry lacks a pipeline.
         </p>
 
-        <div class="cta-buttons">
-          <a href="#contact" class="btn btn-primary">Start the Conversation</a>
-          <a href="#schools" class="btn btn-outline">Learn More for Schools</a>
-        </div>
+        <p>
+          The Geospatial Workforce Institute was built specifically to close that gap.
+        </p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer id="contact">
-    <div class="container">
-      <div class="footer-wrap">
-        <div>
-          <strong>Geospatial Workforce Institute</strong>
-          <p class="small">Workforce-ready education for surveying and geospatial careers.</p>
-        </div>
+<section>
+  <div class="container">
+    <div class="section-heading">
+      <h3>A Different Approach</h3>
+    </div>
 
-        <div class="small">
-          Email: your-email@example.com<br />
-          © 2026 Geospatial Workforce Institute. All rights reserved.
-        </div>
+    <div class="panel">
+      <p>
+        This institute takes a different approach to education. Instead of focusing only on
+        content delivery, it focuses on connection — connecting students to real careers,
+        connecting schools to workforce needs, and connecting learning to purpose.
+      </p>
+
+      <p>
+        The goal is not just to teach information, but to help students understand where they
+        fit in the world and how their skills can translate into meaningful work.
+      </p>
+
+      <ul>
+        <li>Practical, real-world concepts</li>
+        <li>Clear connections to career pathways</li>
+        <li>Scalable for classrooms and programs</li>
+        <li>Designed with future technology and AI support in mind</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="highlight">
+  <div class="container">
+    <div class="section-heading">
+      <h3>Why Geospatial and Surveying Matter</h3>
+      <p>
+        Every structure, every road, every property boundary, and every development project
+        begins with understanding the land.
+      </p>
+    </div>
+
+    <div class="panel">
+      <p>
+        Surveyors and geospatial professionals provide that understanding. They measure,
+        interpret, and define the physical world so that everything else can be built on top of it.
+      </p>
+
+      <p>
+        These careers are not only essential — they are stable, meaningful, and increasingly
+        important as infrastructure continues to grow and evolve.
+      </p>
+
+      <p>
+        The opportunity is real. The demand is real. The awareness is not.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-heading">
+      <h3>Founder’s Perspective</h3>
+    </div>
+
+    <div class="founder">
+      <div class="founder-card">
+        <img src="logo.png" alt="Geospatial Workforce Institute logo" />
+      </div>
+
+      <div class="founder-text">
+        <h4>Built from the classroom forward</h4>
+
+        <p>
+          This institute was built from years of classroom experience and a clear recognition
+          of what students need but are not currently getting: direction, relevance, and a
+          connection to real opportunity.
+        </p>
+
+        <p>
+          Too many students move through school without ever discovering careers that would
+          fit them perfectly. At the same time, industries that depend on skilled professionals
+          are left searching for people who were never shown the path.
+        </p>
+
+        <p>
+          The Geospatial Workforce Institute exists to change that — to make the invisible
+          visible, to connect education with purpose, and to help students step into careers
+          that matter.
+        </p>
       </div>
     </div>
-  </footer>
-</body>
-</html>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="cta">
+      <h3>This Is More Than a Course</h3>
+      <p>
+        The Geospatial Workforce Institute is a long-term vision to rebuild the connection
+        between education and opportunity. It is a pathway for students, a solution for schools,
+        and a bridge to the future workforce.
+      </p>
+      <a href="for-schools.html" class="btn btn-primary">See How This Works for Schools</a>
+    </div>
+  </div>
+</section>
